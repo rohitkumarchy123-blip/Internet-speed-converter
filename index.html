@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Net Speed Calculator by Rohit</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #f7f7f7;
+      padding: 30px;
+    }
+    .card {
+      background: white;
+      max-width: 400px;
+      margin: auto;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    input {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+      text-align: center;
+    }
+    button {
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover { background: #0056b3; }
+    p { font-size: 18px; margin-top: 10px; }
+    h1 { font-size: 22px; margin-bottom: 10px; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>💨 Net Speed Calculator by Rohit</h1>
+    <input id="mbps" type="number" placeholder="Enter speed in Mbps">
+    <button onclick="convertToMB()">Convert to MB/s</button>
+    <p id="mbResult"></p>
+    <hr>
+    <input id="mb" type="number" placeholder="Enter speed in MB/s">
+    <button onclick="convertToMbps()">Convert to Mbps</button>
+    <p id="mbpsResult"></p>
+  </div>
+
+  <script>
+    function convertToMB() {
+      const mbps = parseFloat(document.getElementById('mbps').value);
+      if (!mbps) return;
+      const mb = mbps / 8;
+      document.getElementById('mbResult').innerText = `${mb.toFixed(2)} MB/s`;
+    }
+    function convertToMbps() {
+      const mb = parseFloat(document.getElementById('mb').value);
+      if (!mb) return;
+      const mbps = mb * 8;
+      document.getElementById('mbpsResult').innerText = `${mbps.toFixed(2)} Mbps`;
+    }
+  </script>
+</body>
+</html>
